@@ -1,1 +1,196 @@
 
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT導入補助金2025 申請フロー インフォグラフィック</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Chosen Palette: Brilliant Blues related
+           Primary Accent: #0077B6 (Tailwind: bg-sky-700, text-sky-700)
+           Secondary Accent: #00B4D8 (Tailwind: bg-cyan-500, text-cyan-500)
+           Highlight/Light Background: #ADE8F4 (Tailwind: bg-cyan-200, text-cyan-800)
+           Card Backgrounds: #FFFFFF (Tailwind: bg-white)
+           Page Background: #F0F9FF (Tailwind: bg-sky-50)
+           Text: #1E293B (Tailwind: text-slate-800)
+        */
+        body {
+            font-family: 'Inter', sans-serif; /* Using Inter as a professional font */
+        }
+        .flowchart-step {
+            border: 2px solid #0077B6; /* sky-700 */
+            background-color: #FFFFFF; /* white */
+            color: #1E293B; /* slate-800 */
+        }
+        .flowchart-arrow {
+            font-size: 2rem;
+            color: #0077B6; /* sky-700 */
+            line-height: 1;
+        }
+        .card {
+            background-color: #FFFFFF; /* white */
+            border-radius: 0.5rem; /* rounded-lg */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); /* shadow-md */
+            transition: transform 0.2s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .section-title {
+            color: #0077B6; /* sky-700 */
+        }
+        .point-highlight {
+            background-color: #E0F2FE; /* sky-100 */
+            border-left: 4px solid #0077B6; /* sky-700 */
+        }
+        .unicode-icon {
+            font-size: 1.5em;
+            margin-right: 0.5rem;
+        }
+        /* Confirmation: NO SVG graphics were used. NO Mermaid JS was used. */
+        /* Chosen Palette: Brilliant Blues - #0077B6, #00B4D8, #ADE8F4, #FFFFFF, #F0F9FF, #1E293B */
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+        /* Label wrapping and tooltip logic for Chart.js would go here if Chart.js was used.
+           Since this infographic primarily uses HTML/CSS for its flowchart, these are not implemented.
+        */
+    </script>
+</head>
+<body class="bg-sky-50 text-slate-800 antialiased" style="font-family: 'Noto Sans JP', sans-serif;">
+
+    <header class="bg-sky-700 text-white p-6 shadow-lg">
+        <div class="container mx-auto text-center">
+            <h0 class="text-3xl md:text-4xl font-bold">IT導入補助金2025 申請フロー</h0>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+
+        <section class="mb-12 text-center">
+            <h2 class="text-2xl font-bold section-title mb-6">申請手続きの全体フロー</h2>
+            <div class="flex flex-col items-center space-y-2 md:space-y-0 md:flex-row md:justify-center md:space-x-2 overflow-x-auto pb-4">
+
+                <div class="flowchart-step p-4 rounded-lg text-center min-w-[180px] md:min-w-[200px]">
+                    <span class="unicode-icon">🆔</span>
+                    <h3 class="font-semibold">STEP 1</h3>
+                    <p>GビズIDプライム取得</p>
+                </div>
+                <div class="flowchart-arrow transform md:rotate-0 rotate-90">➔</div>
+                <div class="flowchart-step p-4 rounded-lg text-center min-w-[180px] md:min-w-[200px]">
+                    <span class="unicode-icon">🛡️</span>
+                    <h3 class="font-semibold">STEP 2</h3>
+                    <p>SECURITY ACTION宣言</p>
+                </div>
+                <div class="flowchart-arrow transform md:rotate-0 rotate-90">➔</div>
+                <div class="flowchart-step p-4 rounded-lg text-center min-w-[180px] md:min-w-[200px]">
+                    <span class="unicode-icon">🧭</span>
+                    <h3 class="font-semibold">STEP 3</h3>
+                    <p>IT戦略ナビ実施 <span class="text-sm text-sky-600">(任意)</span></p>
+                </div>
+                <div class="flowchart-arrow transform md:rotate-0 rotate-90">➔</div>
+                 <div class="flowchart-step p-4 rounded-lg text-center min-w-[180px] md:min-w-[200px]">
+                    <span class="unicode-icon">📄</span>
+                    <h3 class="font-semibold">STEP 4</h3>
+                    <p>必要書類準備</p>
+                </div>
+                <div class="flowchart-arrow transform md:rotate-0 rotate-90">➔</div>
+                <div class="flowchart-step p-4 rounded-lg text-center min-w-[180px] md:min-w-[200px] bg-green-100 border-green-500">
+                    <span class="unicode-icon">💻</span>
+                    <h3 class="font-semibold">電子申請</h3>
+                </div>
+                <div class="flowchart-arrow transform md:rotate-0 rotate-90">➔</div>
+                <div class="flowchart-step p-4 rounded-lg text-center min-w-[180px] md:min-w-[200px] bg-sky-100 border-sky-500">
+                    <span class="unicode-icon">🎉</span>
+                    <h3 class="font-semibold">完了</h3>
+                </div>
+            </div>
+             <p class="mt-6 text-slate-700 text-md">IT導入補助金2025の申請におけるSTEP4までのフローをご案内いたします。</p>
+        </section>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+            <div class="card p-6">
+                <h3 class="text-xl font-bold section-title mb-4"><span class="unicode-icon">🆔</span>STEP 1：GビズIDプライムの取得</h3>
+                <p class="mb-4 text-slate-700">IT導入補助金の電子申請に<strong class="text-red-600">必須のID</strong>です。未取得の場合は、まずこのIDを取得しましょう。</p>
+                <div class="space-y-3">
+                    <div class="p-4 bg-sky-50 rounded-md border border-sky-200">
+                        <h4 class="font-semibold text-sky-800">オンライン申請（代表者）</h4>
+                        <p class="text-sm text-slate-600">必要書類：マイナンバーカード ＋ 署名用パスワード</p>
+                        <p class="text-sm text-slate-600">所要日数：<strong class="text-sky-700">即日〜1日</strong> ⏱️</p>
+                    </div>
+                    <div class="p-4 bg-sky-50 rounded-md border border-sky-200">
+                        <h4 class="font-semibold text-sky-800">書類郵送申請</h4>
+                        <p class="text-sm text-slate-600">必要書類：印鑑証明書（3ヶ月以内）＋ 登録印など</p>
+                        <p class="text-sm text-slate-600">所要日数：<strong class="text-sky-700">約2週間</strong> 🗓️</p>
+                    </div>
+                </div>
+                <p class="mt-4 text-sm text-slate-600">公式サイト： <a href="https://gbiz-id.go.jp/" target="_blank" class="text-cyan-600 hover:text-cyan-700 underline">https://gbiz-id.go.jp/</a></p>
+            </div>
+
+            <div class="card p-6">
+                <h3 class="text-xl font-bold section-title mb-4"><span class="unicode-icon">🛡️</span>STEP 2：SECURITY ACTION「★一つ星または★★二つ星」の宣言</h3>
+                <p class="mb-4 text-slate-700">情報セキュリティ対策への取り組みを自己宣言する制度です。全申請者に<strong class="text-red-600">必須</strong>となります。</p>
+                <div class="p-4 point-highlight rounded-md">
+                    <p class="text-slate-700"><strong class="text-sky-800">宣言サイトで手続きを行い、「宣言ID（13桁）」を取得</strong>し、補助金申請システムのマイページで入力します。</p>
+                    <p class="text-red-600 font-semibold mt-2">📌 未登録だと申請ができませんので、必ず実施してください。</p>
+                </div>
+                <p class="mt-4 text-sm text-slate-600">宣言サイト： <a href="https://www.ipa.go.jp/security/security-action/" target="_blank" class="text-cyan-600 hover:text-cyan-700 underline">https://www.ipa.go.jp/security/security-action/</a></p>
+            </div>
+
+            <div class="card p-6">
+                <h3 class="text-xl font-bold section-title mb-4"><span class="unicode-icon">🧭</span>STEP 3：IT戦略ナビ with 実施（任意・加点対象）</h3>
+                <p class="mb-4 text-slate-700">自社の経営課題やIT導入方針を診断できるツールです。実施は<strong class="text-sky-700">任意</strong>ですが、<strong class="text-green-600">審査時の加点対象</strong>となります。</p>
+                 <div class="p-4 bg-green-50 rounded-md border border-green-200">
+                    <h4 class="font-semibold text-green-800">実施のメリット ✨</h4>
+                    <ul class="list-disc list-inside text-sm text-slate-600 space-y-1 mt-2">
+                        <li>約5分で自社のIT導入方針を診断可能。</li>
+                        <li>診断結果はPDFで出力可能（申請時の提出は不要）。</li>
+                        <li>申請時に「実施済み」とチェックするだけで<strong class="text-green-700">加点</strong>。</li>
+                    </ul>
+                </div>
+                <p class="mt-4 text-slate-700">操作は簡単！質問に答えるだけで診断が完了します。</p>
+                <p class="mt-2 text-sm text-slate-600">URL： <a href="https://digiwith.smrj.go.jp/it-map//" target="_blank" class="text-cyan-600 hover:text-cyan-700 underline">https://digiwith.smrj.go.jp/it-map/</a></p>
+                <p class="text-red-600 font-semibold mt-2 point-highlight p-2 rounded">📌 実施したかどうかのチェック1つで審査加点されますので、積極的な活用をおすすめします。</p>
+            </div>
+
+            <div class="card p-6">
+                <h3 class="text-xl font-bold section-title mb-4"><span class="unicode-icon">📄</span>STEP 4：必要書類の準備（PDFスキャン）</h3>
+                <p class="mb-4 text-slate-700">申請に必要な書類を準備し、<strong class="text-red-600">明瞭なPDF形式でスキャン</strong>してアップロードします。不鮮明な書類や内容の不一致は差し戻しの対象となるため注意が必要です。</p>
+                <div class="space-y-4">
+                    <div>
+                        <h4 class="font-semibold text-sky-800">履歴事項全部証明書</h4>
+                        <p class="text-sm text-slate-600">内容：登記簿（発行から3ヶ月以内）</p>
+                        <p class="text-sm text-slate-600">取得先：法務局 または 登記ねっと</p>
+                    </div>
+                    <hr>
+                    <div>
+                        <h4 class="font-semibold text-sky-800">納税証明書（その1またはその2）</h4>
+                        <p class="text-sm text-slate-600">内容：直近の法人税の納税証明</p>
+                        <p class="text-sm text-slate-600">取得先：税務署（<strong class="text-red-500">e-Taxでの取得は不可</strong>）</p>
+                    </div>
+                    <hr>
+                    <div>
+                        <h4 class="font-semibold text-sky-800">見積書</h4>
+                        <p class="text-sm text-slate-600">内容：ITツール登録と一致する正式な見積書</p>
+                        <p class="text-sm text-slate-600">取得先：ビジコン・ジャパン 営業担当より提出</p>
+                    </div>
+                </div>
+                <p class="text-red-600 font-semibold mt-4 point-highlight p-2 rounded">📌 書類はすべて内容が確認できるよう、鮮明なPDFで準備してください。</p>
+            </div>
+        </div>
+
+        <section class="mt-12 p-6 bg-sky-600 text-white rounded-lg shadow-xl text-center">
+            <h1 class="text-2xl font-bold mb-3">申請準備を万全に！</h1>
+            <p class="text-lg">このインフォグラフィックが、IT導入補助金2025の申請準備の一助となれば幸いです。</p>
+            <p class="mt-4 text-sm">※最新情報や詳細については、必ず公式のIT導入補助金ウェブサイトをご確認ください。</p>
+        </section>
+    </main>
+
+    <footer class="text-center p-6 mt-8 text-sm text-slate-600 border-t border-slate-200">
+        <p>このインフォグラフィックは情報提供を目的としたものであり、公式情報を代替するものではありません。</p>
+    </footer>
+
+</body>
+</html>
