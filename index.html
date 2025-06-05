@@ -21,23 +21,23 @@
             border: 2px solid #0077B6; /* sky-700 */
             background-color: #FFFFFF; /* white */
             color: #1E293B; /* slate-800 */
-            /* Default: Vertical stack */
+            /* Default: Vertical stack, smaller width */
             width: 100%;
-            max-width: 180px; /* Limit width for small screens */
+            max-width: 160px; /* Limit width for small screens to make it compact */
             margin: 0 auto; /* Center individual steps when stacked */
         }
-        /* Medium screens and up: Wider steps, still potentially stacked if horizontal space is tight */
+        /* Medium screens and up: Slightly wider steps */
         @media (min-width: 768px) {
             .flowchart-step {
-                max-width: 200px;
+                max-width: 180px;
             }
         }
-        /* Large screens and up: Horizontal layout */
+        /* Large screens (1024px, typical for 13-inch displays) and up: Horizontal layout */
         @media (min-width: 1024px) {
             .flowchart-step {
-                width: 100px; /* Fixed width for horizontal flow */
+                width: 80px; /* Fixed width for horizontal flow, making them smaller */
                 flex-shrink: 0; /* Prevent shrinking below this width */
-                max-width: 100px; /* Ensure max-width is respected */
+                max-width: 80px; /* Ensure max-width is respected */
             }
         }
 
@@ -47,13 +47,12 @@
             line-height: 1;
             /* Default: Vertical arrow */
             transform: rotate(90deg);
-            margin: 0.5rem 0; /* Space between stacked steps */
+            margin: 0; /* Let gap utilities handle spacing */
         }
         /* Large screens and up: Horizontal arrow */
         @media (min-width: 1024px) {
             .flowchart-arrow {
                 transform: rotate(0deg);
-                margin: 0 0.25rem; /* Smaller space for horizontal flow */
                 font-size: 1.5rem; /* Slightly smaller arrows for tight horizontal fit */
             }
         }
@@ -101,7 +100,7 @@
 
         <section class="mb-12 text-center">
             <h2 class="text-2xl font-bold section-title mb-6">申請手続きの全体フロー</h2>
-            <div class="w-full flex flex-col items-center space-y-2 md:space-y-0 lg:flex-row lg:justify-center lg:space-x-1 pb-4">
+            <div class="w-full flex flex-col items-center gap-y-2 md:gap-y-0 lg:flex-row lg:justify-center lg:gap-x-1 pb-4">
                 <div class="flowchart-step p-2 rounded-lg text-center">
                     <span class="unicode-icon">🏁</span>
                     <h3 class="font-semibold text-base">開始</h3>
@@ -212,7 +211,7 @@
                         <p class="text-sm text-slate-600">取得先：ビジコン・ジャパン 営業担当より提出</p>
                     </div>
                 </div>
-                <p class="text-red-600 font-semibold mt-4 point-highlight p-2 rounded">📌 書類はすべて内容が確認できるよう、鮮明なPDFで準備してください。</p>
+                <p class="text-red-600 font-semibold mt-4 point-highlight p-2 rounded">� 書類はすべて内容が確認できるよう、鮮明なPDFで準備してください。</p>
             </div>
         </div>
 
@@ -229,3 +228,4 @@
 
 </body>
 </html>
+�
