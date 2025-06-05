@@ -21,7 +21,7 @@
             border: 2px solid #0077B6; /* sky-700 */
             background-color: #FFFFFF; /* white */
             color: #1E293B; /* slate-800 */
-            /* Default: Vertical stack, smaller width */
+            /* Default: Vertical stack, adjusted width for small screens */
             width: 100%;
             max-width: 160px; /* Limit width for small screens to make it compact */
             margin: 0 auto; /* Center individual steps when stacked */
@@ -35,9 +35,9 @@
         /* Large screens (1024px, typical for 13-inch displays) and up: Horizontal layout */
         @media (min-width: 1024px) {
             .flowchart-step {
-                width: 80px; /* Fixed width for horizontal flow, making them smaller */
+                width: 110px; /* Adjusted fixed width for horizontal flow to prevent wrapping */
                 flex-shrink: 0; /* Prevent shrinking below this width */
-                max-width: 80px; /* Ensure max-width is respected */
+                max-width: 110px; /* Ensure max-width is respected */
             }
         }
 
@@ -53,7 +53,7 @@
         @media (min-width: 1024px) {
             .flowchart-arrow {
                 transform: rotate(0deg);
-                font-size: 1.5rem; /* Slightly smaller arrows for tight horizontal fit */
+                font-size: 1.25rem; /* Smaller arrows for tighter horizontal fit */
             }
         }
 
@@ -101,33 +101,34 @@
         <section class="mb-12 text-center">
             <h2 class="text-2xl font-bold section-title mb-6">申請手続きの全体フロー</h2>
             <div class="w-full flex flex-col items-center gap-y-2 md:gap-y-0 lg:flex-row lg:justify-center lg:gap-x-1 pb-4">
+                <!-- 「開始」と「完了」のステップは含みません -->
                 <div class="flowchart-step p-2 rounded-lg text-center">
                     <span class="unicode-icon">🆔</span>
-                    <h3 class="font-semibold text-base">STEP 1</h3>
-                    <p class="text-xs">GビズIDプライム取得</p>
+                    <h3 class="font-semibold text-base whitespace-nowrap">STEP 1</h3>
+                    <p class="text-xs whitespace-nowrap">GビズIDプライム取得</p>
                 </div>
                 <div class="flowchart-arrow">➔</div>
                 <div class="flowchart-step p-2 rounded-lg text-center">
                     <span class="unicode-icon">🛡️</span>
-                    <h3 class="font-semibold text-base">STEP 2</h3>
-                    <p class="text-xs">SECURITY ACTION宣言</p>
+                    <h3 class="font-semibold text-base whitespace-nowrap">STEP 2</h3>
+                    <p class="text-xs whitespace-nowrap">SECURITY ACTION宣言</p>
                 </div>
                 <div class="flowchart-arrow">➔</div>
                 <div class="flowchart-step p-2 rounded-lg text-center">
                     <span class="unicode-icon">🧭</span>
-                    <h3 class="font-semibold text-base">STEP 3</h3>
-                    <p class="text-xs">IT戦略ナビ実施 <span class="text-sky-600">(任意)</span></p>
+                    <h3 class="font-semibold text-base whitespace-nowrap">STEP 3</h3>
+                    <p class="text-xs whitespace-nowrap">IT戦略ナビ実施 <span class="text-sky-600">(任意)</span></p>
                 </div>
                 <div class="flowchart-arrow">➔</div>
                  <div class="flowchart-step p-2 rounded-lg text-center">
                     <span class="unicode-icon">📄</span>
-                    <h3 class="font-semibold text-base">STEP 4</h3>
-                    <p class="text-xs">必要書類準備</p>
+                    <h3 class="font-semibold text-base whitespace-nowrap">STEP 4</h3>
+                    <p class="text-xs whitespace-nowrap">必要書類準備</p>
                 </div>
                 <div class="flowchart-arrow">➔</div>
                 <div class="flowchart-step p-2 rounded-lg text-center bg-green-100 border-green-500">
                     <span class="unicode-icon">💻</span>
-                    <h3 class="font-semibold text-base">電子申請</h3>
+                    <h3 class="font-semibold text-base whitespace-nowrap">電子申請</h3>
                 </div>
             </div>
              <p class="mt-6 text-slate-700 text-md">IT導入補助金2025の申請における全てのステップのフローをご案内いたします。</p>
@@ -201,7 +202,7 @@
                         <p class="text-sm text-slate-600">取得先：ビジコン・ジャパン 営業担当より提出</p>
                     </div>
                 </div>
-                <p class="text-red-600 font-semibold mt-4 point-highlight p-2 rounded">� 書類はすべて内容が確認できるよう、鮮明なPDFで準備してください。</p>
+                <p class="text-red-600 font-semibold mt-4 point-highlight p-2 rounded">📌 書類はすべて内容が確認できるよう、鮮明なPDFで準備してください。</p>
             </div>
         </div>
 
@@ -218,4 +219,3 @@
 
 </body>
 </html>
-�
