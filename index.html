@@ -21,12 +21,43 @@
             border: 2px solid #0077B6; /* sky-700 */
             background-color: #FFFFFF; /* white */
             color: #1E293B; /* slate-800 */
+            /* Default: Vertical stack */
+            width: 100%;
+            max-width: 180px; /* Limit width for small screens */
+            margin: 0 auto; /* Center individual steps when stacked */
         }
+        /* Medium screens and up: Wider steps, still potentially stacked if horizontal space is tight */
+        @media (min-width: 768px) {
+            .flowchart-step {
+                max-width: 200px;
+            }
+        }
+        /* Large screens and up: Horizontal layout */
+        @media (min-width: 1024px) {
+            .flowchart-step {
+                width: 100px; /* Fixed width for horizontal flow */
+                flex-shrink: 0; /* Prevent shrinking below this width */
+                max-width: 100px; /* Ensure max-width is respected */
+            }
+        }
+
         .flowchart-arrow {
             font-size: 2rem;
             color: #0077B6; /* sky-700 */
             line-height: 1;
+            /* Default: Vertical arrow */
+            transform: rotate(90deg);
+            margin: 0.5rem 0; /* Space between stacked steps */
         }
+        /* Large screens and up: Horizontal arrow */
+        @media (min-width: 1024px) {
+            .flowchart-arrow {
+                transform: rotate(0deg);
+                margin: 0 0.25rem; /* Smaller space for horizontal flow */
+                font-size: 1.5rem; /* Slightly smaller arrows for tight horizontal fit */
+            }
+        }
+
         .card {
             background-color: #FFFFFF; /* white */
             border-radius: 0.5rem; /* rounded-lg */
@@ -70,47 +101,47 @@
 
         <section class="mb-12 text-center">
             <h2 class="text-2xl font-bold section-title mb-6">申請手続きの全体フロー</h2>
-            <div class="flex flex-col items-center space-y-2 md:space-y-0 md:flex-row md:justify-center md:space-x-2 pb-4">
-                <div class="flowchart-step p-4 rounded-lg text-center flex-shrink-0 w-full max-w-[250px] md:w-auto md:min-w-[180px] lg:min-w-[200px]">
+            <div class="w-full flex flex-col items-center space-y-2 md:space-y-0 lg:flex-row lg:justify-center lg:space-x-1 pb-4">
+                <div class="flowchart-step p-2 rounded-lg text-center">
                     <span class="unicode-icon">🏁</span>
-                    <h3 class="font-semibold">開始</h3>
+                    <h3 class="font-semibold text-base">開始</h3>
                 </div>
-                <div class="flowchart-arrow transform md:rotate-0 rotate-90">➔</div>
-                <div class="flowchart-step p-4 rounded-lg text-center flex-shrink-0 w-full max-w-[250px] md:w-auto md:min-w-[180px] lg:min-w-[200px]">
+                <div class="flowchart-arrow">➔</div>
+                <div class="flowchart-step p-2 rounded-lg text-center">
                     <span class="unicode-icon">🆔</span>
-                    <h3 class="font-semibold">STEP 1</h3>
-                    <p>GビズIDプライム取得</p>
+                    <h3 class="font-semibold text-base">STEP 1</h3>
+                    <p class="text-xs">GビズIDプライム取得</p>
                 </div>
-                <div class="flowchart-arrow transform md:rotate-0 rotate-90">➔</div>
-                <div class="flowchart-step p-4 rounded-lg text-center flex-shrink-0 w-full max-w-[250px] md:w-auto md:min-w-[180px] lg:min-w-[200px]">
+                <div class="flowchart-arrow">➔</div>
+                <div class="flowchart-step p-2 rounded-lg text-center">
                     <span class="unicode-icon">🛡️</span>
-                    <h3 class="font-semibold">STEP 2</h3>
-                    <p>SECURITY ACTION宣言</p>
+                    <h3 class="font-semibold text-base">STEP 2</h3>
+                    <p class="text-xs">SECURITY ACTION宣言</p>
                 </div>
-                <div class="flowchart-arrow transform md:rotate-0 rotate-90">➔</div>
-                <div class="flowchart-step p-4 rounded-lg text-center flex-shrink-0 w-full max-w-[250px] md:w-auto md:min-w-[180px] lg:min-w-[200px]">
+                <div class="flowchart-arrow">➔</div>
+                <div class="flowchart-step p-2 rounded-lg text-center">
                     <span class="unicode-icon">🧭</span>
-                    <h3 class="font-semibold">STEP 3</h3>
-                    <p>IT戦略ナビ実施 <span class="text-sm text-sky-600">(任意)</span></p>
+                    <h3 class="font-semibold text-base">STEP 3</h3>
+                    <p class="text-xs">IT戦略ナビ実施 <span class="text-sky-600">(任意)</span></p>
                 </div>
-                <div class="flowchart-arrow transform md:rotate-0 rotate-90">➔</div>
-                 <div class="flowchart-step p-4 rounded-lg text-center flex-shrink-0 w-full max-w-[250px] md:w-auto md:min-w-[180px] lg:min-w-[200px]">
+                <div class="flowchart-arrow">➔</div>
+                 <div class="flowchart-step p-2 rounded-lg text-center">
                     <span class="unicode-icon">📄</span>
-                    <h3 class="font-semibold">STEP 4</h3>
-                    <p>必要書類準備</p>
+                    <h3 class="font-semibold text-base">STEP 4</h3>
+                    <p class="text-xs">必要書類準備</p>
                 </div>
-                <div class="flowchart-arrow transform md:rotate-0 rotate-90">➔</div>
-                <div class="flowchart-step p-4 rounded-lg text-center flex-shrink-0 w-full max-w-[250px] md:w-auto md:min-w-[180px] lg:min-w-[200px] bg-green-100 border-green-500">
+                <div class="flowchart-arrow">➔</div>
+                <div class="flowchart-step p-2 rounded-lg text-center bg-green-100 border-green-500">
                     <span class="unicode-icon">💻</span>
-                    <h3 class="font-semibold">電子申請</h3>
+                    <h3 class="font-semibold text-base">電子申請</h3>
                 </div>
-                <div class="flowchart-arrow transform md:rotate-0 rotate-90">➔</div>
-                <div class="flowchart-step p-4 rounded-lg text-center flex-shrink-0 w-full max-w-[250px] md:w-auto md:min-w-[180px] lg:min-w-[200px] bg-sky-100 border-sky-500">
+                <div class="flowchart-arrow">➔</div>
+                <div class="flowchart-step p-2 rounded-lg text-center bg-sky-100 border-sky-500">
                     <span class="unicode-icon">🎉</span>
-                    <h3 class="font-semibold">完了</h3>
+                    <h3 class="font-semibold text-base">完了</h3>
                 </div>
             </div>
-             <p class="mt-6 text-slate-700 text-md">IT導入補助金2025の申請におけるSTEP4までのフローをご案内いたします。</p>
+             <p class="mt-6 text-slate-700 text-md">IT導入補助金2025の申請における全てのステップのフローをご案内いたします。</p>
         </section>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
