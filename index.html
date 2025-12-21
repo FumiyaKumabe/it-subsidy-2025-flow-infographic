@@ -3,236 +3,345 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IT導入補助金2025 申請フロー インフォグラフィック</title>
+    <title>IT導入補助金2025 申請フロー完全ガイド</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
     <style>
-        /* Chosen Palette: Brilliant Blues related
-           Primary Accent: #0077B6 (Tailwind: bg-sky-700, text-sky-700)
-           Secondary Accent: #00B4D8 (Tailwind: bg-cyan-500, text-cyan-500)
-           Highlight/Light Background: #ADE8F4 (Tailwind: bg-cyan-200, text-cyan-800)
-           Card Backgrounds: #FFFFFF (Tailwind: bg-white)
-           Page Background: #F0F9FF (Tailwind: bg-sky-50)
-           Text: #1E293B (Tailwind: text-slate-800)
-        */
         body {
-            font-family: 'Inter', sans-serif; /* Using Inter as a professional font */
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f8fafc;
         }
-        .flowchart-step {
-            border: 2px solid #0077B6; /* sky-700 */
-            background-color: #FFFFFF; /* white */
-            color: #1E293B; /* slate-800 */
-            /* Default: Vertical stack, adjusted width for small screens */
-            width: 100%;
-            max-width: 160px; /* Limit width for small screens to make it compact */
-            margin: 0 auto; /* Center individual steps when stacked */
+
+        /* カスタムグラデーションとシャドウ */
+        .hero-gradient {
+            background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
         }
-        /* Medium screens and up: Slightly wider steps */
-        @media (min-width: 768px) {
-            .flowchart-step {
-                max-width: 180px;
-            }
+
+        .step-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        /* Large screens (1024px, typical for 13-inch displays) and up: Horizontal layout */
+
+        .step-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        /* タイムラインのコネクター (PC用) */
         @media (min-width: 1024px) {
-            .flowchart-step {
-                width: 145px; /* Adjusted fixed width for horizontal flow to prevent wrapping */
-                flex-shrink: 0; /* Prevent shrinking below this width */
-                max-width: 145px; /* Ensure max-width is respected */
+            .timeline-connector::after {
+                content: '';
+                position: absolute;
+                top: 2.5rem;
+                left: 50%;
+                width: 100%;
+                height: 2px;
+                background: #e2e8f0;
+                z-index: 0;
+            }
+            .timeline-step:last-child .timeline-connector::after {
+                display: none;
             }
         }
 
-        .flowchart-arrow {
-            font-size: 2rem;
-            color: #0077B6; /* sky-700 */
-            line-height: 1;
-            /* Default: Vertical arrow */
-            transform: rotate(90deg);
-            margin: 0; /* Let gap utilities handle spacing */
+        /* アニメーション用 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        /* Large screens and up: Horizontal arrow */
-        @media (min-width: 1024px) {
-            .flowchart-arrow {
-                transform: rotate(0deg);
-                font-size: 1.25rem; /* Smaller arrows for tighter horizontal fit */
-            }
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
         }
-
-        .card {
-            background-color: #FFFFFF; /* white */
-            border-radius: 0.5rem; /* rounded-lg */
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); /* shadow-md */
-            transition: transform 0.2s ease-in-out;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-        }
-        .section-title {
-            color: #0077B6; /* sky-700 */
-        }
-        .point-highlight {
-            background-color: #E0F2FE; /* sky-100 */
-            border-left: 4px solid #0077B6; /* sky-700 */
-        }
-        .unicode-icon {
-            font-size: 1.5em;
-            margin-right: 0.5rem;
-        }
-        /* Confirmation: NO SVG graphics were used. NO Mermaid JS was used. */
-        /* Chosen Palette: Brilliant Blues - #0077B6, #00B4D8, #ADE8F4, #FFFFFF, #F0F9FF, #1E293B */
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
-    <script>
-        /* Label wrapping and tooltip logic for Chart.js would go here if Chart.js was used.
-           Since this infographic primarily uses HTML/CSS for its flowchart, these are not implemented.
-        */
-    </script>
 </head>
-<body class="bg-sky-50 text-slate-800 antialiased" style="font-family: 'Noto Sans JP', sans-serif;">
+<body class="text-slate-900">
 
-    <header class="bg-sky-700 text-white p-6 shadow-lg">
-        <div class="container mx-auto text-center">
-            <h1 class="text-3xl md:text-4xl font-bold">IT導入補助金2025 電子申請の前準備</h1>
-            <p class="mt-2 text-lg">電子申請の前準備をステップ毎に解説いたします</p>
+    <!-- Hero Section -->
+    <header class="hero-gradient text-white py-12 px-6 shadow-2xl relative overflow-hidden">
+        <div class="absolute top-0 right-0 -mt-20 -mr-20 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+        <div class="container mx-auto text-center relative z-10">
+            <span class="inline-block bg-sky-400/20 text-sky-100 px-4 py-1 rounded-full text-sm font-bold mb-4 tracking-wider border border-white/20">
+                FOR 2025 APPLICANTS
+            </span>
+            <h1 class="text-3xl md:text-5xl font-black mb-4 tracking-tight leading-tight">
+                IT導入補助金2025<br class="md:hidden"> 電子申請「前準備」ガイド
+            </h1>
+            <p class="text-lg md:text-xl text-sky-100 max-w-2xl mx-auto opacity-90 leading-relaxed font-light">
+                スムーズな採択への第一歩。申請前に完了させるべき4つの必須ステップをプロが徹底解説。
+            </p>
         </div>
     </header>
 
-    <main class="container mx-auto p-4 md:p-8">
+    <main class="container mx-auto px-4 py-12 -mt-8">
+        
+        <!-- Timeline Overview Section -->
+        <section class="bg-white rounded-3xl shadow-xl p-8 mb-16 animate-fade-in">
+            <h2 class="text-2xl font-bold text-center mb-10 flex items-center justify-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-sky-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                </svg>
+                全体ロードマップ
+            </h2>
+            
+            <div class="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+                <!-- Step 1 -->
+                <div class="timeline-step relative z-10 text-center group">
+                    <div class="timeline-connector hidden lg:block"></div>
+                    <div class="w-16 h-16 bg-sky-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg ring-8 ring-sky-50 group-hover:scale-110 transition-transform relative z-10">
+                        <span class="text-2xl font-black italic">01</span>
+                    </div>
+                    <p class="font-bold text-slate-800">GビズID取得</p>
+                    <p class="text-xs text-slate-500 mt-1 uppercase tracking-tighter italic">Essential ID</p>
+                </div>
 
-        <section class="mb-12 text-center">
-            <h2 class="text-2xl font-bold section-title mb-6">申請前準備の全体フロー</h2>
-            <div class="w-full flex flex-col items-center gap-y-2 md:gap-y-0 lg:flex-row lg:justify-center lg:gap-x-1 pb-4">
-                <!-- 「開始」と「完了」のステップは含みません -->
-                <div class="flowchart-step p-2 rounded-lg text-center">
-                    <span class="unicode-icon">🆔</span>
-                    <h3 class="font-semibold text-base whitespace-nowrap">STEP 1</h3>
-                    <p class="text-xs whitespace-nowrap">GビズIDプライム取得</p>
+                <!-- Step 2 -->
+                <div class="timeline-step relative z-10 text-center group">
+                    <div class="timeline-connector hidden lg:block"></div>
+                    <div class="w-16 h-16 bg-sky-500 text-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg ring-8 ring-sky-50 group-hover:scale-110 transition-transform relative z-10">
+                        <span class="text-2xl font-black italic">02</span>
+                    </div>
+                    <p class="font-bold text-slate-800">SECURITY ACTION</p>
+                    <p class="text-xs text-slate-500 mt-1 uppercase tracking-tighter italic">Security Oath</p>
                 </div>
-                <div class="flowchart-arrow">➔</div>
-                <div class="flowchart-step p-2 rounded-lg text-center">
-                    <span class="unicode-icon">🛡️</span>
-                    <h3 class="font-semibold text-base whitespace-nowrap">STEP 2</h3>
-                    <p class="text-xs whitespace-nowrap">SECURITY ACTION宣言</p>
+
+                <!-- Step 3 -->
+                <div class="timeline-step relative z-10 text-center group">
+                    <div class="timeline-connector hidden lg:block"></div>
+                    <div class="w-16 h-16 bg-sky-400 text-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg ring-8 ring-sky-50 group-hover:scale-110 transition-transform relative z-10">
+                        <span class="text-2xl font-black italic">03</span>
+                    </div>
+                    <p class="font-bold text-slate-800 italic">IT戦略ナビ(任意)</p>
+                    <p class="text-xs text-slate-500 mt-1 uppercase tracking-tighter italic">Bonus Points</p>
                 </div>
-                <div class="flowchart-arrow">➔</div>
-                <div class="flowchart-step p-2 rounded-lg text-center">
-                    <span class="unicode-icon">🧭</span>
-                    <h3 class="font-semibold text-base whitespace-nowrap">STEP 3</h3>
-                    <p class="text-xs whitespace-nowrap">IT戦略ナビ実施 <span class="text-sky-600">(任意)</span></p>
+
+                <!-- Step 4 -->
+                <div class="timeline-step relative z-10 text-center group">
+                    <div class="timeline-connector hidden lg:block"></div>
+                    <div class="w-16 h-16 bg-sky-300 text-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg ring-8 ring-sky-50 group-hover:scale-110 transition-transform relative z-10">
+                        <span class="text-2xl font-black italic">04</span>
+                    </div>
+                    <p class="font-bold text-slate-800">必要書類のスキャン</p>
+                    <p class="text-xs text-slate-500 mt-1 uppercase tracking-tighter italic">Documentation</p>
                 </div>
-                <div class="flowchart-arrow">➔</div>
-                 <div class="flowchart-step p-2 rounded-lg text-center">
-                    <span class="unicode-icon">📄</span>
-                    <h3 class="font-semibold text-base whitespace-nowrap">STEP 4</h3>
-                    <p class="text-xs whitespace-nowrap">必要書類準備</p>
-                </div>
-                <div class="flowchart-arrow">➔</div>
-                <div class="flowchart-step p-2 rounded-lg text-center bg-green-100 border-green-500">
-                    <span class="unicode-icon">💻</span>
-                    <h3 class="font-semibold text-base whitespace-nowrap">電子申請</h3>
+
+                <!-- Goal -->
+                <div class="relative z-10 text-center group">
+                    <div class="w-16 h-16 bg-emerald-500 text-white rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg ring-8 ring-emerald-50 group-hover:rotate-12 transition-all">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </div>
+                    <p class="font-black text-emerald-600">電子申請</p>
+                    <p class="text-xs text-emerald-500 mt-1 uppercase tracking-tighter font-bold italic">Application</p>
                 </div>
             </div>
         </section>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-
-            <div class="card p-6">
-                <h3 class="text-xl font-bold section-title mb-4"><span class="unicode-icon">🆔</span>STEP 1：GビズIDプライムの取得</h3>
-                <p class="mb-4 text-slate-700">IT導入補助金の電子申請に<strong class="text-red-600">必須のID</strong>です。未取得の場合は、まずこのIDを取得しましょう。</p>
-                <div class="space-y-3">
-                    <div class="p-4 bg-sky-50 rounded-md border border-sky-200">
-                        <h4 class="font-semibold text-sky-800">オンライン申請（代表者）</h4>
-                        <p class="text-sm text-slate-600">必要書類：マイナンバーカード ＋ 署名用パスワード</p>
-                        <p class="text-sm text-slate-600">所要日数：<strong class="text-sky-700">即日〜1日</strong> ⏱️</p>
+        <!-- Detailed Cards Section -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            
+            <!-- Step 1 Card -->
+            <div class="step-card bg-white rounded-3xl p-8 border border-slate-100 shadow-sm relative overflow-hidden group">
+                <div class="absolute -top-4 -right-4 w-24 h-24 bg-sky-50 rounded-full group-hover:scale-150 transition-transform"></div>
+                <div class="relative z-10">
+                    <div class="flex items-start justify-between mb-6">
+                        <div>
+                            <span class="text-sky-600 font-black text-sm uppercase tracking-widest block mb-1">Step 01</span>
+                            <h3 class="text-2xl font-bold text-slate-800">GビズIDプライムの取得</h3>
+                        </div>
+                        <div class="bg-red-50 text-red-600 text-xs font-bold px-3 py-1 rounded-full border border-red-100">必須</div>
                     </div>
-                    <div class="p-4 bg-sky-50 rounded-md border border-sky-200">
-                        <h4 class="font-semibold text-sky-800">書類郵送申請</h4>
-                        <p class="text-sm text-slate-600">必要書類：印鑑証明書（3ヶ月以内）＋ 登録印など</p>
-                        <p class="text-sm text-slate-600">所要日数：<strong class="text-sky-700">約2週間</strong> 🗓️</p>
+                    <p class="text-slate-600 mb-6 leading-relaxed">全ての法人が申請に必要となる共通IDです。取得には時間がかかる場合があるため、真っ先に取り組んでください。</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                            <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center mr-4 shrink-0">📱</div>
+                            <div>
+                                <h4 class="font-bold text-sm text-slate-800">オンライン申請（おすすめ）</h4>
+                                <p class="text-xs text-slate-500">マイナンバーカード利用：<span class="text-sky-600 font-bold">即日〜1日</span></p>
+                            </div>
+                        </div>
+                        <div class="flex items-center p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                            <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center mr-4 shrink-0">📮</div>
+                            <div>
+                                <h4 class="font-bold text-sm text-slate-800">郵送申請</h4>
+                                <p class="text-xs text-slate-500">印鑑証明書郵送：<span class="text-amber-600 font-bold">約2週間程度</span></p>
+                            </div>
+                        </div>
                     </div>
+                    <a href="https://gbiz-id.go.jp/" target="_blank" class="mt-6 inline-flex items-center text-sky-600 font-bold text-sm hover:underline">
+                        公式サイトへアクセス
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                    </a>
                 </div>
-                <p class="mt-4 text-sm text-slate-600">公式サイト： <a href="https://gbiz-id.go.jp/" target="_blank" class="text-cyan-600 hover:text-cyan-700 underline">https://gbiz-id.go.jp/</a></p>
             </div>
 
-            <div class="card p-6">
-                <h3 class="text-xl font-bold section-title mb-4"><span class="unicode-icon">🛡️</span>STEP 2：SECURITY ACTION「★一つ星または★★二つ星」の宣言</h3>
-                <p class="mb-4 text-slate-700">情報セキュリティ対策への取り組みを自己宣言する制度です。全申請者に<strong class="text-red-600">必須</strong>となります。</p>
-                <div class="p-4 point-highlight rounded-md">
-                    <p class="text-slate-700"><strong class="text-sky-800">宣言サイトで手続きを行い、「宣言ID（13桁）」を取得</strong>し、補助金申請システムのマイページで入力します。</p>
-                    <p class="text-red-600 font-semibold mt-2">📌 未登録だと申請ができませんので、必ず実施してください。</p>
+            <!-- Step 2 Card -->
+            <div class="step-card bg-white rounded-3xl p-8 border border-slate-100 shadow-sm relative overflow-hidden group">
+                <div class="absolute -top-4 -right-4 w-24 h-24 bg-indigo-50 rounded-full group-hover:scale-150 transition-transform"></div>
+                <div class="relative z-10">
+                    <div class="flex items-start justify-between mb-6">
+                        <div>
+                            <span class="text-indigo-600 font-black text-sm uppercase tracking-widest block mb-1">Step 02</span>
+                            <h3 class="text-2xl font-bold text-slate-800">SECURITY ACTION 宣言</h3>
+                        </div>
+                        <div class="bg-red-50 text-red-600 text-xs font-bold px-3 py-1 rounded-full border border-red-100">必須</div>
+                    </div>
+                    <p class="text-slate-600 mb-6 leading-relaxed">情報セキュリティ対策への誓約です。中小企業なら「一つ星」または「二つ星」の宣言が義務付けられています。</p>
+                    
+                    <div class="bg-indigo-50 border-l-4 border-indigo-500 p-5 rounded-r-2xl">
+                        <h4 class="font-bold text-indigo-900 text-sm mb-2 flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                            </svg>
+                            手続きのポイント
+                        </h4>
+                        <p class="text-xs text-indigo-800 leading-relaxed mb-3">
+                            宣言サイトで申し込み後、発行される<strong class="underline font-bold">「自己宣言ID（13桁）」</strong>が申請時に必要です。
+                        </p>
+                        <p class="text-xs text-red-500 font-bold italic">※登録済みの方は、有効なIDか事前に確認しましょう。</p>
+                    </div>
+                    <a href="https://www.ipa.go.jp/security/security-action/" target="_blank" class="mt-6 inline-flex items-center text-indigo-600 font-bold text-sm hover:underline">
+                        宣言サイト（IPA）
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                    </a>
                 </div>
-                <p class="mt-4 text-sm text-slate-600">宣言サイト： <a href="https://www.ipa.go.jp/security/security-action/" target="_blank" class="text-cyan-600 hover:text-cyan-700 underline">https://www.ipa.go.jp/security/security-action/</a></p>
             </div>
 
-            <div class="card p-6">
-                <h3 class="text-xl font-bold section-title mb-4"><span class="unicode-icon">🧭</span>STEP 3：IT戦略ナビ with 実施（任意・加点対象）</h3>
-                <p class="mb-4 text-slate-700">自社の経営課題やIT導入方針を診断できるツールです。実施は<strong class="text-sky-700">任意</strong>ですが、<strong class="text-green-600">審査時の加点対象</strong>となります。</p>
-                 <div class="p-4 bg-green-50 rounded-md border border-green-200">
-                    <h4 class="font-semibold text-green-800">実施のメリット ✨</h4>
-                    <ul class="list-disc list-inside text-sm text-slate-600 space-y-1 mt-2">
-                        <li>約5分で自社のIT導入方針を診断可能。</li>
-                        <li>診断結果はPDFで出力可能（申請時の提出は不要）。</li>
-                        <li>申請時に「実施済み」とチェックするだけで<strong class="text-green-700">加点</strong>。</li>
+            <!-- Step 3 Card -->
+            <div class="step-card bg-white rounded-3xl p-8 border border-slate-100 shadow-sm relative overflow-hidden group">
+                <div class="absolute -top-4 -right-4 w-24 h-24 bg-emerald-50 rounded-full group-hover:scale-150 transition-transform"></div>
+                <div class="relative z-10">
+                    <div class="flex items-start justify-between mb-6">
+                        <div>
+                            <span class="text-emerald-600 font-black text-sm uppercase tracking-widest block mb-1">Step 03</span>
+                            <h3 class="text-2xl font-bold text-slate-800">IT戦略ナビの実施</h3>
+                        </div>
+                        <div class="bg-emerald-50 text-emerald-600 text-xs font-bold px-3 py-1 rounded-full border border-emerald-100">加点項目</div>
+                    </div>
+                    <p class="text-slate-600 mb-6 leading-relaxed">経営課題を可視化する簡易診断ツールです。数分で終わる回答だけで<strong class="text-emerald-600">審査時に有利（加点）</strong>になります。</p>
+                    
+                    <div class="grid grid-cols-2 gap-3 text-center">
+                        <div class="p-3 bg-slate-50 rounded-2xl border border-slate-100">
+                            <span class="block text-xl mb-1">⏱️</span>
+                            <span class="text-[10px] text-slate-500 block">所要時間</span>
+                            <span class="text-sm font-bold">約5分</span>
+                        </div>
+                        <div class="p-3 bg-slate-50 rounded-2xl border border-slate-100">
+                            <span class="block text-xl mb-1">📈</span>
+                            <span class="text-[10px] text-slate-500 block">メリット</span>
+                            <span class="text-sm font-bold">審査加点</span>
+                        </div>
+                    </div>
+                    <p class="mt-6 text-xs text-slate-500 italic leading-relaxed bg-emerald-50 p-3 rounded-lg">
+                        💡 診断結果のPDFを提出する必要はありません。申請フォーム内で「実施済み」にチェックを入れるだけで加点対象となります。
+                    </p>
+                </div>
+            </div>
+
+            <!-- Step 4 Card -->
+            <div class="step-card bg-white rounded-3xl p-8 border border-slate-100 shadow-sm relative overflow-hidden group">
+                <div class="absolute -top-4 -right-4 w-24 h-24 bg-amber-50 rounded-full group-hover:scale-150 transition-transform"></div>
+                <div class="relative z-10">
+                    <div class="flex items-start justify-between mb-6">
+                        <div>
+                            <span class="text-amber-600 font-black text-sm uppercase tracking-widest block mb-1">Step 04</span>
+                            <h3 class="text-2xl font-bold text-slate-800">必要書類の電子化</h3>
+                        </div>
+                        <div class="bg-red-50 text-red-600 text-xs font-bold px-3 py-1 rounded-full border border-red-100">必須</div>
+                    </div>
+                    <p class="text-slate-600 mb-6 leading-relaxed">全ての書類をPDF形式で用意します。不鮮明なスキャンや、隅が切れている場合は<strong class="text-amber-700">即時差し戻し</strong>となるため細心の注意が必要です。</p>
+                    
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-sm font-medium text-slate-700">
+                            <svg class="w-4 h-4 mr-2 text-amber-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            履歴事項全部証明書（3ヶ月以内）
+                        </li>
+                        <li class="flex items-center text-sm font-medium text-slate-700">
+                            <svg class="w-4 h-4 mr-2 text-amber-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            法人税の納税証明書（その1またはその2）
+                        </li>
+                        <li class="flex items-center text-sm font-medium text-slate-700 italic opacity-60">
+                            ※納税証明書はe-Taxの画面コピー不可。税務署発行のもの。
+                        </li>
                     </ul>
                 </div>
-                <p class="mt-4 text-slate-700">操作は簡単！質問に答えるだけで診断が完了します。</p>
-                <p class="mt-2 text-sm text-slate-600">URL： <a href="https://digiwith.smrj.go.jp/it-map/" target="_blank" class="text-cyan-600 hover:text-cyan-700 underline">https://digiwith.smrj.go.jp/it-map/</a></p>
-                <p class="text-red-600 font-semibold mt-2 point-highlight p-2 rounded">📌 実施したかどうかのチェック1つで審査加点されますので、積極的な活用をおすすめします。</p>
-            </div>
-
-            <div class="card p-6">
-                <h3 class="text-xl font-bold section-title mb-4"><span class="unicode-icon">📄</span>STEP 4：必要書類の準備（PDFスキャン）</h3>
-                <p class="mb-4 text-slate-700">申請に必要な書類を準備し、<strong class="text-red-600">明瞭なPDF形式でスキャン</strong>してアップロードします。不鮮明な書類や内容の不一致は差し戻しの対象となるため注意が必要です。</p>
-                <div class="space-y-4">
-                    <div>
-                        <h4 class="font-semibold text-sky-800">履歴事項全部証明書</h4>
-                        <p class="text-sm text-slate-600">内容：登記簿（発行から3ヶ月以内）</p>
-                        <p class="text-sm text-slate-600">取得先：法務局 または 登記ねっと</p>
-                    </div>
-                    <hr>
-                    <div>
-                        <h4 class="font-semibold text-sky-800">納税証明書（その1またはその2）</h4>
-                        <p class="text-sm text-slate-600">内容：直近の法人税の納税証明</p>
-                        <p class="text-sm text-slate-600">取得先：税務署（<strong class="text-red-500">e-Taxでの取得は不可</strong>）</p>
-                    </div>
-                    <hr>
-                    <div>
-                        <h4 class="font-semibold text-sky-800">見積書</h4>
-                        <p class="text-sm text-slate-600">内容：ITツール登録と一致する正式な見積書</p>
-                        <p class="text-sm text-slate-600">取得先：ビジコン・ジャパン 営業担当より提出</p>
-                    </div>
-                </div>
-                <p class="text-red-600 font-semibold mt-4 point-highlight p-2 rounded">📌 書類はすべて内容が確認できるよう、鮮明なPDFで準備してください。</p>
-            </div>
-
-            <!-- 電子申請時に必要な財務情報 -->
-            <div class="card p-6 md:col-span-2">
-                <h3 class="text-xl font-bold section-title mb-4">
-                    <span class="unicode-icon">📊</span>電子申請時に必要な財務情報もご準備ください
-                </h3>
-                <p class="mb-4 text-slate-700">
-                    申請にあたり、事業者の財務的な基礎情報を入力する必要がございます。
-                </p>
-                <ul class="flex flex-wrap list-none text-slate-700 gap-x-4">
-                    <li class="flex items-center">・ <strong class="text-sky-800">資本金（または元入金）</strong></li>
-                    <li class="flex items-center">・ <strong class="text-sky-800">売上高（前期・前々期）</strong></li>
-                    <li class="flex items-center">・ <strong class="text-sky-800">常勤従業員数（フルタイム換算）</strong></li>
-                    <li class="flex items-center">・ <strong class="text-sky-800">直近の決算期</strong></li>
-                </ul>
-                <p class="mt-4 text-slate-700">
-                    これらの情報は、補助金の交付対象要件や補助額算出の基礎にもなります。
-                </p>
             </div>
         </div>
 
-        <section class="mt-12 p-6 bg-sky-600 text-white rounded-lg shadow-xl text-center">
-            <h2 class="text-2xl font-bold mb-3">申請準備を万全に！</h2>
-            <p class="text-lg">このインフォグラフィックが、IT導入補助金2025の申請準備の一助となれば幸いです。</p>
-            <p class="mt-4 text-sm">※最新情報や詳細については、必ず公式のIT導入補助金ウェブサイトをご確認ください。</p>
+        <!-- Financial Info Highlight -->
+        <section class="mt-12 bg-slate-900 rounded-[2.5rem] p-10 text-white shadow-2xl relative overflow-hidden animate-fade-in">
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-sky-500/10 rounded-full -mb-48 -mr-24 blur-3xl"></div>
+            <div class="relative z-10">
+                <div class="flex flex-col lg:flex-row items-center gap-10">
+                    <div class="lg:w-1/3 text-center lg:text-left">
+                        <div class="inline-block p-4 bg-white/10 rounded-3xl mb-4 backdrop-blur-md">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                            </svg>
+                        </div>
+                        <h2 class="text-3xl font-black mb-4">電子申請時に入力する<br>財務情報の準備</h2>
+                        <p class="text-slate-400 leading-relaxed">書類の提出だけでなく、申請フォームへ直接数値を入力する項目があります。直近の決算書を手元に用意しましょう。</p>
+                    </div>
+                    <div class="lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
+                        <div class="p-6 bg-white/5 border border-white/10 rounded-2xl flex items-center group hover:bg-white/10 transition-colors">
+                            <span class="text-2xl mr-4 group-hover:scale-125 transition-transform">💰</span>
+                            <div>
+                                <h4 class="font-bold text-sky-400">売上高</h4>
+                                <p class="text-xs text-slate-400 italic">前期および前々期の数値</p>
+                            </div>
+                        </div>
+                        <div class="p-6 bg-white/5 border border-white/10 rounded-2xl flex items-center group hover:bg-white/10 transition-colors">
+                            <span class="text-2xl mr-4 group-hover:scale-125 transition-transform">🏢</span>
+                            <div>
+                                <h4 class="font-bold text-sky-400">資本金 / 元入金</h4>
+                                <p class="text-xs text-slate-400 italic">登記簿・決算書と一致する額</p>
+                            </div>
+                        </div>
+                        <div class="p-6 bg-white/5 border border-white/10 rounded-2xl flex items-center group hover:bg-white/10 transition-colors">
+                            <span class="text-2xl mr-4 group-hover:scale-125 transition-transform">👥</span>
+                            <div>
+                                <h4 class="font-bold text-sky-400">常勤従業員数</h4>
+                                <p class="text-xs text-slate-400 italic">直近のフルタイム換算人数</p>
+                            </div>
+                        </div>
+                        <div class="p-6 bg-white/5 border border-white/10 rounded-2xl flex items-center group hover:bg-white/10 transition-colors">
+                            <span class="text-2xl mr-4 group-hover:scale-125 transition-transform">📅</span>
+                            <div>
+                                <h4 class="font-bold text-sky-400">決算月 / 設立日</h4>
+                                <p class="text-xs text-slate-400 italic">基本情報として必須入力</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Closing Advice -->
+        <section class="mt-16 text-center">
+            <div class="max-w-2xl mx-auto">
+                <div class="w-16 h-1 bg-sky-600 mx-auto mb-8"></div>
+                <h2 class="text-2xl font-bold mb-6">準備万全で採択を目指しましょう</h2>
+                <p class="text-slate-600 mb-8 leading-relaxed">
+                    IT導入補助金は、事前の準備が成否の8割を占めます。余裕を持って各ステップを完了させ、最新の公募要領を必ず確認した上で申請を進めてください。
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <div class="px-6 py-3 bg-slate-100 rounded-full text-slate-500 text-sm font-medium">※本ガイドは2025年最新情報に基づいています</div>
+                </div>
+            </div>
         </section>
     </main>
 
-    <footer class="text-center p-6 mt-8 text-sm text-slate-600 border-t border-slate-200">
-        <p>このインフォグラフィックは情報提供を目的としたものであり、公式情報を代替するものではありません。</p>
+    <footer class="bg-slate-100 border-t border-slate-200 py-12 px-6">
+        <div class="container mx-auto text-center">
+            <p class="text-slate-500 text-sm mb-4">
+                © 2025 IT導入補助金 申請支援インフォグラフィック<br>
+                <span class="text-[10px] opacity-60">※本ページの情報は情報提供を目的としており、補助金の採択を保証するものではありません。詳細は必ず公式サイトを確認してください。</span>
+            </p>
+        </div>
     </footer>
 
 </body>
