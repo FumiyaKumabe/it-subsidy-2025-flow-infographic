@@ -88,7 +88,6 @@
 </head>
 <body class="antialiased overflow-x-hidden">
 
-    <!-- Navbar (Floating) -->
     <nav class="fixed top-6 left-0 right-0 z-50 px-4">
         <div class="max-w-6xl mx-auto glass-effect rounded-2xl py-4 px-8 flex justify-between items-center shadow-sm">
             <div class="flex items-center gap-2 font-black text-xl tracking-tighter">
@@ -96,13 +95,12 @@
                 <span class="hidden sm:inline">導入補助金2025</span>
             </div>
             <div class="flex items-center gap-4">
-                <span class="text-xs font-bold text-slate-400 uppercase tracking-widest hidden md:inline">Preparation Guide</span>
-                <a href="#" class="bg-slate-900 text-white text-xs font-bold px-5 py-2.5 rounded-xl hover:bg-sky-600 transition-colors">最新要領を確認</a>
+                <span class="text-xs font-bold text-slate-400 uppercase tracking-widest hidden md:inline">株式会社ビジコン・ジャパン</span>
+                <a href="https://it-shien.smrj.go.jp/" target="_blank" class="bg-slate-900 text-white text-xs font-bold px-5 py-2.5 rounded-xl hover:bg-sky-600 transition-colors">最新要領を確認</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="relative pt-40 pb-24 px-6 overflow-hidden">
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] pointer-events-none">
             <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-sky-200/30 rounded-full blur-[120px]"></div>
@@ -129,13 +127,10 @@
 
     <main class="max-w-7xl mx-auto px-6 pb-32">
         
-        <!-- Step Roadmap -->
         <div class="mb-24">
             <div class="relative flex flex-col md:flex-row justify-between items-center gap-8 md:gap-4 max-w-5xl mx-auto">
-                <!-- Connector Line -->
                 <div class="absolute top-1/2 left-0 w-full h-0.5 bg-slate-100 -translate-y-1/2 hidden md:block"></div>
                 
-                <!-- Timeline Items -->
                 <div class="relative z-10 text-center flex flex-col items-center group">
                     <div class="timeline-dot w-12 h-12 bg-white border-4 border-sky-500 rounded-full flex items-center justify-center text-sky-600 font-black mb-3 shadow-lg group-hover:scale-110 transition-transform">1</div>
                     <span class="text-xs font-bold text-slate-400">GビズID</span>
@@ -161,20 +156,18 @@
             </div>
         </div>
 
-        <!-- Detailed Cards Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
             
-            <!-- Step 1 -->
             <div class="step-card bg-white rounded-[2.5rem] p-10 flex flex-col h-full animate-slide-up">
                 <div class="flex justify-between items-start mb-8">
                     <div class="icon-box w-16 h-16 rounded-2xl flex items-center justify-center text-3xl shadow-sm">🆔</div>
                     <span class="bg-red-50 text-red-500 text-[10px] font-black px-3 py-1 rounded-full border border-red-100 uppercase tracking-widest">Required</span>
                 </div>
-                <h3 class="text-2xl font-black mb-4">GビズIDプライムの取得</h3>
+                <h3 class="text-2xl font-black mb-4"><a href="https://gbiz-id.go.jp/" target="_blank" class="hover:text-sky-500 transition-colors">GビズIDプライムの取得</a></h3>
                 <p class="text-slate-500 leading-relaxed mb-8 flex-grow">
                     あらゆる行政手続きの基盤となるIDです。郵送申請の場合は発行に2週間程度かかることもあるため、<strong>検討を開始した瞬間に申し込んでください。</strong>
                 </p>
-                <div class="space-y-3">
+                <div class="space-y-3 mb-8">
                     <div class="flex items-center p-4 bg-slate-50 rounded-2xl border border-slate-100 group/item hover:bg-white transition-colors">
                         <div class="w-10 h-10 bg-white rounded-xl flex items-center justify-center mr-4 shadow-sm group-hover/item:text-sky-500">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A10.003 10.003 0 0012 20a10.003 10.003 0 006.21-2.3m-3.44 2.04l.054.09a10.003 10.003 0 001.246-4.48c0-3.517-1.009-6.799-2.753-9.571m-3.44-2.04L11 2.3m1 1l1 1"></path></svg>
@@ -194,19 +187,22 @@
                         </div>
                     </div>
                 </div>
+                <a href="https://gbiz-id.go.jp/" target="_blank" class="inline-flex items-center justify-center gap-2 w-full py-4 bg-sky-500 hover:bg-sky-600 text-white rounded-2xl font-bold transition-all shadow-lg shadow-sky-100">
+                    GビズID 公式サイトへ
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                </a>
             </div>
 
-            <!-- Step 2 -->
             <div class="step-card bg-white rounded-[2.5rem] p-10 flex flex-col h-full animate-slide-up" style="animation-delay: 0.1s;">
                 <div class="flex justify-between items-start mb-8">
                     <div class="icon-box w-16 h-16 rounded-2xl flex items-center justify-center text-3xl shadow-sm">🛡️</div>
                     <span class="bg-red-50 text-red-500 text-[10px] font-black px-3 py-1 rounded-full border border-red-100 uppercase tracking-widest">Required</span>
                 </div>
-                <h3 class="text-2xl font-black mb-4">SECURITY ACTION 宣言</h3>
+                <h3 class="text-2xl font-black mb-4"><a href="https://www.ipa.go.jp/security/security-action/" target="_blank" class="hover:text-sky-500 transition-colors">SECURITY ACTION 宣言</a></h3>
                 <p class="text-slate-500 leading-relaxed mb-8 flex-grow">
                     「情報セキュリティ対策に取り組むこと」を自己宣言する制度です。中小企業なら「一つ星」以上の宣言が必須となります。
                 </p>
-                <div class="bg-indigo-50/50 rounded-3xl p-6 border border-indigo-100">
+                <div class="bg-indigo-50/50 rounded-3xl p-6 border border-indigo-100 mb-8">
                     <div class="flex items-center gap-2 text-indigo-700 font-bold text-sm mb-3">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
                         重要な提出物
@@ -216,15 +212,18 @@
                     </p>
                     <p class="text-[10px] mt-4 text-slate-400 font-bold italic">※既に取得済みの方は、IDの有効期限を要確認</p>
                 </div>
+                <a href="https://www.ipa.go.jp/security/security-action/" target="_blank" class="inline-flex items-center justify-center gap-2 w-full py-4 bg-indigo-600 hover:bg-indigo-700 text-white rounded-2xl font-bold transition-all shadow-lg shadow-indigo-50">
+                    SECURITY ACTION 宣言ページ
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                </a>
             </div>
 
-            <!-- Step 3 -->
             <div class="step-card bg-white rounded-[2.5rem] p-10 flex flex-col h-full animate-slide-up" style="animation-delay: 0.2s;">
                 <div class="flex justify-between items-start mb-8">
                     <div class="icon-box w-16 h-16 rounded-2xl flex items-center justify-center text-3xl shadow-sm">🎯</div>
                     <span class="bg-emerald-50 text-emerald-600 text-[10px] font-black px-3 py-1 rounded-full border border-emerald-100 uppercase tracking-widest">Bonus Point</span>
                 </div>
-                <h3 class="text-2xl font-black mb-4">IT戦略ナビの実施</h3>
+                <h3 class="text-2xl font-black mb-4"><a href="https://digiwith.smrj.go.jp/it-map/" target="_blank" class="hover:text-sky-500 transition-colors">IT戦略ナビの実施</a></h3>
                 <p class="text-slate-500 leading-relaxed mb-8 flex-grow">
                     経営課題を整理するための簡易診断です。たった数分の回答だけで、審査時の点数が上乗せされるため、<strong>実施しない手はありません。</strong>
                 </p>
@@ -238,12 +237,15 @@
                         <p class="text-xl font-black text-emerald-500">High</p>
                     </div>
                 </div>
-                <p class="text-[11px] text-slate-400 leading-relaxed bg-slate-50 p-4 rounded-2xl italic">
+                <p class="text-[11px] text-slate-400 leading-relaxed bg-slate-50 p-4 rounded-2xl italic mb-8">
                     ※診断結果のPDF提出は不要ですが、申請画面で「実施済み」を正しく選択する必要があります。
                 </p>
+                <a href="https://digiwith.smrj.go.jp/it-map/" target="_blank" class="inline-flex items-center justify-center gap-2 w-full py-4 bg-emerald-500 hover:bg-emerald-600 text-white rounded-2xl font-bold transition-all shadow-lg shadow-emerald-50">
+                    IT戦略ナビ 診断ページへ
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                </a>
             </div>
 
-            <!-- Step 4 -->
             <div class="step-card bg-white rounded-[2.5rem] p-10 flex flex-col h-full animate-slide-up" style="animation-delay: 0.3s;">
                 <div class="flex justify-between items-start mb-8">
                     <div class="icon-box w-16 h-16 rounded-2xl flex items-center justify-center text-3xl shadow-sm">📄</div>
@@ -269,7 +271,6 @@
             </div>
         </div>
 
-        <!-- Financial Info Section -->
         <section class="mt-20 bg-slate-900 rounded-[3rem] p-8 md:p-16 text-white relative overflow-hidden shadow-2xl animate-slide-up" style="animation-delay: 0.4s;">
             <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-sky-500/10 to-transparent pointer-events-none"></div>
             <div class="relative z-10">
@@ -308,10 +309,9 @@
             </div>
         </section>
 
-        <!-- Final Message -->
         <div class="mt-32 text-center max-w-2xl mx-auto">
             <div class="w-12 h-1 bg-sky-500 mx-auto mb-10 rounded-full"></div>
-            <h2 class="text-3xl font-black mb-6">準備ができたら、IT導入支援事業者へ</h2>
+            <h2 class="text-3xl font-black mb-6">準備ができたら、ビジコン・ジャパンへ</h2>
             <p class="text-slate-500 leading-relaxed mb-10">
                 これらの準備が整えば、実際の入力作業は非常にスムーズになります。補助金を活用したIT導入は、貴社の生産性を飛躍させる大きな一歩です。
             </p>
